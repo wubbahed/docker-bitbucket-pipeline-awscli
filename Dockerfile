@@ -3,7 +3,10 @@ FROM atlassian/default-image:latest
 RUN mkdir -p /opt/atlassian/pipelines/agent/build
 WORKDIR /opt/atlassian/pipelines/agent/build
 
+RUN sudo apt-get autoremove
+RUN sudo apt-get remove nodejs
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+RUN sudo apt-get upgrade -y
 RUN sudo apt-get install -y nodejs
 RUN sudo apt-get install jq
 
