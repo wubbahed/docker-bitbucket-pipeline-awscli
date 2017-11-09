@@ -1,6 +1,6 @@
 FROM atlassian/default-image:latest
 
-RUN mkdir /opt/atlassian/pipelines/agent/build
+RUN mkdir -p /opt/atlassian/pipelines/agent/build
 WORKDIR /opt/atlassian/pipelines/agent/build
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
@@ -11,7 +11,7 @@ RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.
 RUN unzip awscli-bundle.zip
 RUN ./awscli-bundle/install -b ~/bin/aws
 RUN export PATH=~/bin:$PATH
-RUN aws --version
+CMD ["aws", "--version"]
 
 RUN npm install react
 RUN npm install react-dom
