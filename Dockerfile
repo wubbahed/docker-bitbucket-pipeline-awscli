@@ -13,10 +13,10 @@ RUN ./awscli-bundle/install -b ~/bin/aws
 RUN export PATH=~/bin:$PATH
 CMD ["aws", "--version"]
 
+RUN npm install -g create-react-app
 RUN npm install react
 RUN npm install react-dom
 RUN npm install react-router-dom
-RUN npm install react-scripts
 RUN npm install react-validation
 RUN npm install firebase
 RUN npm install bulma
