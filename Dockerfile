@@ -1,14 +1,11 @@
 FROM atlassian/default-image:latest
 
+CMD ["sudo", "npm", "install", "-g", "npm"]
+CMD ["sudo", "npm", "install", "-g", "npm"]
+RUN sudo apt-get install jq
+
 RUN mkdir -p /opt/atlassian/pipelines/agent/build
 WORKDIR /opt/atlassian/pipelines/agent/build
-
-RUN sudo apt-get autoremove
-RUN sudo apt-get remove nodejs
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-RUN sudo apt-get upgrade -y
-RUN sudo apt-get install -y nodejs
-RUN sudo apt-get install jq
 
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 RUN unzip awscli-bundle.zip
